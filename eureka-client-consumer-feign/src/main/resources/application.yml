@@ -9,5 +9,12 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
+# ribbon 懒加载配置，以防止第一次访问导致失败的问题
+ribbon:
+  eager-load:
+    enabled: true
+    clients: eureka-client-provider
+
+
 
 
