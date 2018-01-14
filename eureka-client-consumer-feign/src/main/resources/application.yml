@@ -15,6 +15,14 @@ ribbon:
     enabled: true
     clients: eureka-client-provider
 
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+
 
 
 
