@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: message-consumer
+  #mq 配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: /
+    username: guest
+    password: guest
+
+server:
+  port: 8083
+
+
+
+
+
+
