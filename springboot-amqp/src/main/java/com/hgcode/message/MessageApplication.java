@@ -1,7 +1,12 @@
 package com.hgcode.message;
 
+import com.hgcode.message.core.Config.ExchangeConstant;
+import com.hgcode.message.core.Config.MemberMessage;
+import com.hgcode.message.core.Config.QueueConstant;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Bean;

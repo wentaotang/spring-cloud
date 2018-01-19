@@ -27,7 +27,7 @@ public class UserRegisterHandler {
     */
     @RabbitListener(queues = QueueConstant.QUEUE_NAME,containerFactory = "rabbitListenerContainerFactory")
     @RabbitHandler
-    public void process( Message message) {
+    public void process(Message message) {
         System.out.println(new String(message.getBody()));
     }
 }
