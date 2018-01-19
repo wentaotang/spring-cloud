@@ -1,8 +1,6 @@
 package com.hgcode.message.config;
 
 
-import com.hgcode.message.core.Config.ExchangeConstant;
-import com.hgcode.message.core.Config.QueueConstant;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
@@ -11,26 +9,23 @@ import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFacto
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+
+/**
+* @Description: 定义交换器和队列的绑定关系
+* @author wentao_tang
+* @date 2018/1/19 21:27
+* @version V1.0
+*/
 
 @Configurable
 public class RabbitMqConfig {
 
     @Bean
-    public Queue  userRegisterQueue(){
-        return new Queue(QueueConstant.QUEUE_NAME,true);
-    }
-
-
-    @Bean
-    public DirectExchange memberExchange() {
-        return new DirectExchange(ExchangeConstant.EXCHANGE_NAME, true, false);
-    }
-
-
-    @Bean
-    public Binding binding(Queue userRegisterQueue, DirectExchange memberExchange){
-        return BindingBuilder.bind(userRegisterQueue).to(memberExchange).with("member");
+    public Binding binding(@Qualifier("userRegisterQueue") Queue queue,
+                           @Qualifier("memberExchange") DirectExchange exchange){
+        return BindingBuilder.bind(queue).to(exchange).with("member");
     }
 
    /* @Bean

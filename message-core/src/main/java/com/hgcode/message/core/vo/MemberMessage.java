@@ -1,10 +1,8 @@
-package com.hgcode.message.vo;
+package com.hgcode.message.core.vo;
 
-import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 
-@Component
 public class MemberMessage implements Serializable{
 
     private String name;
