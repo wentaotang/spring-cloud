@@ -7,15 +7,10 @@
     <artifactId>consul-client-provider</artifactId>
     <description>consul 不同于eurake需要单独的注册中心，consul自身提供了服务端</description>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-    </properties>
-
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <artifactId>spring-cloud</artifactId>
+        <groupId>com.hgcode</groupId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <dependencies>
@@ -34,23 +29,6 @@
         </dependency>
     </dependencies>
 
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <!-- 这个版本号和springboot版本号 有一定的对应关系
-                     参考地址：http://projects.spring.io/spring-cloud/
-                -->
-                <version>Edgware.RELEASE</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-
     <build>
         <plugins>
             <plugin>
@@ -59,5 +37,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

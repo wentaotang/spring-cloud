@@ -1,8 +1,6 @@
 package com.hgcode.message.handle;
 
 import com.alibaba.fastjson.JSON;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hgcode.message.core.config.QueueConstant;
 import com.hgcode.message.core.vo.MemberMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +26,7 @@ public class UserRegisterHandler {
     /**
     * RabbitListener 注解必须写在方法上，否则报错！
     */
-    @RabbitListener(queues = QueueConstant.QUEUE_NAME,containerFactory = "rabbitListenerContainerFactory")
+    @RabbitListener(queues = "queue-member",containerFactory = "rabbitListenerContainerFactory")
     @RabbitHandler
     public void process(Message message) {
         MemberMessage memberMessage=JSON.parseObject(message.getBody(),MemberMessage.class);

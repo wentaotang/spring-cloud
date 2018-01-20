@@ -8,18 +8,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <packaging>jar</packaging>
     <artifactId>message-core</artifactId>
     <description>定义消息实体的公共模块，供消费者和生产者使用</description>
-
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-            <version>1.5.9.RELEASE</version>
-        </dependency>
-    </dependencies>
-
 
 </project>

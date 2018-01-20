@@ -1,6 +1,5 @@
 package com.hgcode.message.config;
 
-import com.hgcode.message.core.config.ExchangeConstant;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +16,6 @@ public class ExchangeConfig {
 
     @Bean
     public DirectExchange memberExchange() {
-        return new DirectExchange(ExchangeConstant.EXCHANGE_NAME, true, false);
+        return new DirectExchange("exchange.direct.member", true, false);
     }
 }

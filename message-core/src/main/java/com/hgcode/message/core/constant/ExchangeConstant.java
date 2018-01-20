@@ -1,4 +1,4 @@
-package com.hgcode.message.core.config;
+package com.hgcode.message.core.constant;
 
 /**
 * @Description: 交换器名称常量定义  全局公用

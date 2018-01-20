@@ -1,4 +1,4 @@
-package com.hgcode.message.core.config;
+package com.hgcode.message.core.constant;
 
 /**
 * @Description: 队列名称常量定义，全局公用
