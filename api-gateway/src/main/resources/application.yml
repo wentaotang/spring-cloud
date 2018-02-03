@@ -9,6 +9,15 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
 zuul:
   add-host-header: true
+  ignored-services: *
+  #单实例配置：通过一组zuul.routes.<route>.path与zuul.routes.<route>.url参数对的方式配置
+  routes:
+    user-service:
+      path: /user-service/**
+      url: http://localhost:8080/
+  #多实例配置： 多实例配置：通过一组zuul.routes.<route>.path与zuul.routes.<route>.serviceId参数对的方式配置
+
+
 
 
 

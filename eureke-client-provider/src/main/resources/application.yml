@@ -3,10 +3,20 @@ spring:
     name: eureka-client-provider
 server:
   port: 12000
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
 
+# 下线服务的用法 curl -X POST http://localhost:port/shutdown
 
+endpoints:
+  shutdown:
+    # 启用shutdown 在切换服务的时候 可以实现优雅的下线服务
+    enabled: true
+    #禁用密码验证
+    sensitive: false
+  actuator:
+    enabled: true

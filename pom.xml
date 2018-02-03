@@ -10,7 +10,7 @@
     <name>spring-cloud</name>
     <description>Demo project for Spring Boot</description>
 
-    <!--<repositories>
+    <repositories>
         <repository>
             <id>maven-ali</id>
             <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
@@ -23,7 +23,7 @@
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
         </repository>
-    </repositories>-->
+    </repositories>
 
 
     <properties>
@@ -43,12 +43,13 @@
         <module>api-gateway</module>
         <module>message-core</module>
         <module>springboot-amqp</module>
+        <module>spring-cloud-stream-demo</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.9.RELEASE</version>
+        <version>1.5.10.RELEASE</version>
     </parent>
 
 
