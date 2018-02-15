@@ -5,17 +5,27 @@ server:
   port: 1101
 eureka:
   client:
+    healthcheck:
+      enabled: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+
 zuul:
   add-host-header: true
-  ignored-services: *
+  #ignored-services: *
   #单实例配置：通过一组zuul.routes.<route>.path与zuul.routes.<route>.url参数对的方式配置
   routes:
     user-service:
       path: /user-service/**
       url: http://localhost:8080/
-  #多实例配置： 多实例配置：通过一组zuul.routes.<route>.path与zuul.routes.<route>.serviceId参数对的方式配置
+    sms-service:
+      path: /api-sms/**
+      serviceId: eureka-client-consumer-feign
+ribbon:
+  eager-load:
+    enabled: true
+    clients: eureka-client-consumer-feign
 
 
 

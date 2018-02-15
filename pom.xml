@@ -37,8 +37,6 @@
         <module>eureka-server</module>
         <module>eureke-client-provider</module>
         <module>consul-client-provider</module>
-        <module>eureka-client-consumer</module>
-        <module>eureka-client-consumer-ribbon</module>
         <module>eureka-client-consumer-feign</module>
         <module>api-gateway</module>
         <module>message-core</module>
@@ -64,5 +62,14 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
 
 </project>
