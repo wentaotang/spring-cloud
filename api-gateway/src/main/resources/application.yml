@@ -22,6 +22,9 @@ zuul:
     sms-service:
       path: /api-sms/**
       serviceId: eureka-client-consumer-feign
+  host:
+    max-per-route-connections: 1000
+    max-total-connections: 1000
 ribbon:
   eager-load:
     enabled: true
