@@ -1,0 +1,15 @@
+spring:
+  profiles: online-8761
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+        defaultZone: http://online-8760/eureka/
+
+
+
