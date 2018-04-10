@@ -1,0 +1,13 @@
+server:
+  port: 8760
+
+eureka:
+  instance:
+    #当配置集群的时候，hostname不能写成localhost或是127.0.0.1
+    hostname: online-master
+  client:
+    service-url:
+        defaultZone: http://online-slave:8761/eureka/
+
+
+

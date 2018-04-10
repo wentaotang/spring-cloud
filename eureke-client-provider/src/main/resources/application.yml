@@ -5,7 +5,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8760/eureka/,http://localhost:8761/eureka/
+      defaultZone: http://online-master:8760/eureka/
 
 
 # 下线服务的用法 curl -X POST http://localhost:port/shutdown
