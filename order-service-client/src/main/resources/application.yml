@@ -1,0 +1,11 @@
+server:
+  port: ${random.int(10000,19999)}
+
+spring:
+  application:
+    name: order-service
+eureka:
+  client:
+    service-url:
+      defaultZone: http://online-master:8760/eureka,http://online-slave:8761/eureka
+
