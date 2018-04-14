@@ -1,5 +1,5 @@
 server:
-  port: ${random.int(10000,19999)}
+  port: 8888
 spring:
   application:
     name: order-consumer
@@ -8,3 +8,22 @@ eureka:
   client:
     service-url:
       defaultZone: http://online-master:8760/eureka,http://online-slave:8761/eureka
+
+# Hystrix 超时时间，默认的超时时间是1秒
+hystrix:
+  commpand:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+# feign 超时设置
+feign:
+  client:
+    config:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+
+
