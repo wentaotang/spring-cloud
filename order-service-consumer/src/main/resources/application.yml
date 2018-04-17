@@ -7,23 +7,10 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://online-master:8760/eureka,http://online-slave:8761/eureka
+      defaultZone: http://localhost:8760/eureka
 
-# Hystrix 超时时间，默认的超时时间是1秒
-hystrix:
-  commpand:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
 
-# feign 超时设置
-feign:
-  client:
-    config:
-        connectTimeout: 5000
-        readTimeout: 5000
+
 
 
 

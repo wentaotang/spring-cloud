@@ -7,7 +7,7 @@ eureka:
     hostname: online-master
   client:
     service-url:
-        defaultZone: http://online-slave:8761/eureka/
+        defaultZone: http://localhost:8760/eureka/
 
 
 

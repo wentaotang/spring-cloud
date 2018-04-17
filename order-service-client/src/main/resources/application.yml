@@ -1,5 +1,5 @@
 server:
-  port: ${random.int(10000,19999)}
+  port: 12001
 
 spring:
   application:
@@ -7,5 +7,5 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://online-master:8760/eureka,http://online-slave:8761/eureka
+      defaultZone: http://localhost:8760/eureka
 
