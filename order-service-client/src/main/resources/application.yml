@@ -13,6 +13,10 @@ spring:
       password: root
       jdbc-url: jdbc:mysql://localhost:3306/app?useUnicode=true&characterEncoding=utf8
       connection-test-query: select 1
+      minimum-idle: 5
+      maximum-pool-size: 10
+      #一个连接的生命时长（毫秒），超时而且没被使用则被释放（retired），缺省:30分钟，建议设置比数据库超时时长少30秒，参考MySQL wait_timeout参数（show variables like '%timeout%';）
+      max-lifetime: 1800000
 
 eureka:
   client:
