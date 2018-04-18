@@ -53,7 +53,7 @@
         <module>message-core</module>
         <module>springboot-amqp</module>
         <module>spring-cloud-stream-demo</module>
-        <module>cloud-gateway</module>
+        <!--<module>cloud-gateway</module>-->
         <module>order-service-client</module>
         <module>order-service-consumer</module>
     </modules>

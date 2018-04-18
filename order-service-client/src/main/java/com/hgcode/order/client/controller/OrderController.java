@@ -16,6 +16,7 @@ public class OrderController {
     public String save(@RequestBody Map<String,Object> map) throws InvocationTargetException, IllegalAccessException {
         User user=new User();
         BeanUtils.populate(user,map);
+        System.out.println(user);
         return "ok";
     }
 
