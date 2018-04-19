@@ -6,8 +6,6 @@ spring:
 
 eureka:
   client:
-    service-url:
-      defaultZone: http://localhost:8760/eureka
     # eureka client刷新本地缓存时间 默认30s
     registry-fetch-interval-seconds: 5
 # ribbon 立即加载的服务
