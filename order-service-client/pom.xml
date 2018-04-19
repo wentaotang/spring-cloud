@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>order-service-provider</artifactId>
+    <artifactId>order-service-client</artifactId>
 
     <dependencies>
         <dependency>
