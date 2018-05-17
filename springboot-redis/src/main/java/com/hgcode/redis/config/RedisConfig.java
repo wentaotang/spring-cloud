@@ -2,6 +2,9 @@ package com.hgcode.redis.config;
 
 
 import com.hgcode.redis.receiver.PdfReceiver;
+import com.hgcode.redis.receiver.SignReceiver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,9 +14,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
+import redis.clients.jedis.JedisPoolConfig;
 
 @Configuration
 public class RedisConfig {
@@ -38,20 +39,19 @@ public class RedisConfig {
 
     @Value("${spring.redis.pool.min-idle}")
     private int minIdle;
-    //生成pdf队列
-    private static final String PDF_TOPIC="top:pdf";
-    //签章队列
-    private static final String SIGN_TOPIC="top:sign";
+
+
+    @Autowired
+    private PdfReceiver pdfReceiver;
+    @Autowired
+    private SignReceiver signReceiver;
 
     @Bean
-    RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory,
-                                            MessageListenerAdapter listenerAdapter) {
+    RedisMessageListenerContainer container() {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-        container.setConnectionFactory(connectionFactory);
-        List<PatternTopic> topicList=new ArrayList<>();
-        topicList.add(new PatternTopic(PDF_TOPIC));
-        topicList.add(new PatternTopic(SIGN_TOPIC));
-        container.addMessageListener(listenerAdapter, topicList);
+        container.setConnectionFactory(jedisConnectionFactory());
+        container.addMessageListener(pdfListenerAdapter(), new PatternTopic(Constants.PDF_TOPIC));
+        container.addMessageListener(signListenerAdapter(), new PatternTopic(Constants.SIGN_TOPIC));
         return container;
     }
 
@@ -65,18 +65,33 @@ public class RedisConfig {
         jedisConnectionFactory.setDatabase(database);
         jedisConnectionFactory.setPassword(password);
         jedisConnectionFactory.setTimeout(timeout);
-        //jedisConnectionFactory.setPoolConfig();
+        jedisConnectionFactory.setPoolConfig(jedisPoolConfig());
         return jedisConnectionFactory;
     }
 
     @Bean
-    MessageListenerAdapter listenerAdapter(PdfReceiver receiver) {
-        return new MessageListenerAdapter(receiver, "receive");
+    JedisPoolConfig jedisPoolConfig(){
+        JedisPoolConfig config=new JedisPoolConfig();
+        config.setMaxIdle(maxIdle);
+        config.setMinIdle(minIdle);
+        config.setTestOnCreate(true);
+        return config;
     }
 
 
     @Bean
-    StringRedisTemplate template(RedisConnectionFactory connectionFactory) {
+    MessageListenerAdapter pdfListenerAdapter() {
+        return new MessageListenerAdapter(pdfReceiver, "receive");
+    }
+
+    @Bean
+    MessageListenerAdapter signListenerAdapter() {
+        return new MessageListenerAdapter(signReceiver, "receive");
+    }
+
+
+    @Bean
+    StringRedisTemplate stringRedisTemplate(@Qualifier("jedisConnectionFactory") RedisConnectionFactory connectionFactory) {
         return new StringRedisTemplate(connectionFactory);
     }
 }

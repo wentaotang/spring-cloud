@@ -1,20 +1,25 @@
 package com.hgcode.redis;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+import com.hgcode.redis.config.Constants;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
-import org.springframework.data.redis.listener.PatternTopic;
-import org.springframework.data.redis.listener.RedisMessageListenerContainer;
-import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.ApplicationContext;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 @SpringBootApplication
 public class RedisApplication {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger("");
 
 
+    public static void main(String[] args) {
+        //new SpringApplicationBuilder(RedisApplication.class).web(true).run(args);
 
+        ApplicationContext ctx = SpringApplication.run(RedisApplication.class, args);
+        StringRedisTemplate stringRedisTemplate=ctx.getBean(StringRedisTemplate.class);
+
+        stringRedisTemplate.convertAndSend(Constants.PDF_TOPIC,"hello world");
+    }
 }
