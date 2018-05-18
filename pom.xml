@@ -57,6 +57,7 @@
         <module>order-service-client</module>
         <module>order-service-consumer</module>
         <module>config-server</module>
+        <module>sharding-jdbc-demo</module>
     </modules>
 
     <repositories>

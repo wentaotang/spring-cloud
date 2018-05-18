@@ -1,8 +1,8 @@
 spring:
   datasource:
     hikari:
-      username: root
       driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
       password: root
       jdbc-url: jdbc:mysql://localhost:3306/app?useUnicode=true&characterEncoding=utf8
       connection-test-query: select 1
