@@ -20,6 +20,7 @@ public class RedisApplication {
         ApplicationContext ctx = SpringApplication.run(RedisApplication.class, args);
         StringRedisTemplate stringRedisTemplate=ctx.getBean(StringRedisTemplate.class);
 
-        stringRedisTemplate.convertAndSend(Constants.PDF_TOPIC,"hello world");
+        stringRedisTemplate.convertAndSend(Constants.PDF_TOPIC,"hello world pdf");
+        stringRedisTemplate.convertAndSend(Constants.SIGN_TOPIC,"hello world sign");
     }
 }
