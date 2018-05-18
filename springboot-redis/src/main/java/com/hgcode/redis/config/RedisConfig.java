@@ -14,6 +14,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
 @Configuration
@@ -43,6 +44,7 @@ public class RedisConfig {
 
     @Autowired
     private PdfReceiver pdfReceiver;
+
     @Autowired
     private SignReceiver signReceiver;
 
@@ -81,12 +83,12 @@ public class RedisConfig {
 
     @Bean
     MessageListenerAdapter pdfListenerAdapter() {
-        return new MessageListenerAdapter(pdfReceiver, "receive");
+        return new MessageListenerAdapter(pdfReceiver, Constants.DEFAULT_LISTENER_METHOD);
     }
 
     @Bean
     MessageListenerAdapter signListenerAdapter() {
-        return new MessageListenerAdapter(signReceiver, "receive");
+        return new MessageListenerAdapter(signReceiver,Constants.DEFAULT_LISTENER_METHOD);
     }
 
 
