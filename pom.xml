@@ -58,6 +58,7 @@
         <module>config-server</module>
         <module>springboot-redis</module>
         <module>sharding-jdbc-demo</module>
+        <module>spring-security-demo</module>
     </modules>
 
     <repositories>

@@ -41,6 +41,7 @@ public class RabbitMqConfig {
     public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory(ConnectionFactory connectionFactory) {
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
+        factory.setConcurrentConsumers(10);
         factory.setMessageConverter(new Jackson2JsonMessageConverter());
         return factory;
     }
