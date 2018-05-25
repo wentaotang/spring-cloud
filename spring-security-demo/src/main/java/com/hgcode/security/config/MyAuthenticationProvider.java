@@ -66,10 +66,7 @@ public class MyAuthenticationProvider extends AbstractUserDetailsAuthenticationP
         try {
             authenticationChecker.check(user);
             additionalAuthenticationChecks(user, (UsernamePasswordAuthenticationToken) authentication);
-        } catch (
-                AuthenticationException exception)
-
-        {
+        } catch (AuthenticationException exception) {
             throw exception;
         }
         myPostAuthenticationChecker.check(user);

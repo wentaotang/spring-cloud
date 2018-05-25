@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
+import org.springframework.data.redis.connection.RedisPassword;
+import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
+import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.listener.PatternTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
-import redis.clients.jedis.JedisPoolConfig;
 
 @Configuration
 public class RedisConfig {
@@ -26,19 +26,16 @@ public class RedisConfig {
     @Value("${spring.redis.port}")
     private int port;
 
-    @Value("${spring.redis.timeout}")
-    private int timeout;
-
     @Value("${spring.redis.password}")
     private String password;
 
     @Value("${spring.redis.database}")
     private int database;
 
-    @Value("${spring.redis.pool.max-idle}")
+    @Value("${spring.redis.lettuce.pool.max-idle}")
     private int maxIdle;
 
-    @Value("${spring.redis.pool.min-idle}")
+    @Value("${spring.redis.lettuce.pool.min-idle}")
     private int minIdle;
 
 
@@ -51,7 +48,7 @@ public class RedisConfig {
     @Bean
     RedisMessageListenerContainer container() {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
-        container.setConnectionFactory(jedisConnectionFactory());
+        container.setConnectionFactory(lettuceConnectionFactory());
         container.addMessageListener(pdfListenerAdapter(), new PatternTopic(Constants.PDF_TOPIC));
         container.addMessageListener(signListenerAdapter(), new PatternTopic(Constants.SIGN_TOPIC));
         return container;
@@ -59,26 +56,20 @@ public class RedisConfig {
 
 
     @Bean
-    JedisConnectionFactory jedisConnectionFactory(){
-        JedisConnectionFactory jedisConnectionFactory=new JedisConnectionFactory();
-        jedisConnectionFactory.setUsePool(true);
-        jedisConnectionFactory.setHostName(host);
-        jedisConnectionFactory.setPort(port);
-        jedisConnectionFactory.setDatabase(database);
-        jedisConnectionFactory.setPassword(password);
-        jedisConnectionFactory.setTimeout(timeout);
-        jedisConnectionFactory.setPoolConfig(jedisPoolConfig());
-        return jedisConnectionFactory;
+    LettuceConnectionFactory lettuceConnectionFactory(){
+        return  new LettuceConnectionFactory(redisStandaloneConfiguration());
     }
 
     @Bean
-    JedisPoolConfig jedisPoolConfig(){
-        JedisPoolConfig config=new JedisPoolConfig();
-        config.setMaxIdle(maxIdle);
-        config.setMinIdle(minIdle);
-        config.setTestOnCreate(true);
-        return config;
+    RedisStandaloneConfiguration redisStandaloneConfiguration(){
+        RedisStandaloneConfiguration configuration=new RedisStandaloneConfiguration();
+        configuration.setDatabase(database);
+        configuration.setHostName(host);
+        configuration.setPassword(RedisPassword.of(password));
+        configuration.setPort(port);
+        return  configuration;
     }
+
 
 
     @Bean
@@ -93,7 +84,7 @@ public class RedisConfig {
 
 
     @Bean
-    StringRedisTemplate stringRedisTemplate(@Qualifier("jedisConnectionFactory") RedisConnectionFactory connectionFactory) {
+    StringRedisTemplate stringRedisTemplate(@Qualifier("lettuceConnectionFactory") RedisConnectionFactory connectionFactory) {
         return new StringRedisTemplate(connectionFactory);
     }
 }

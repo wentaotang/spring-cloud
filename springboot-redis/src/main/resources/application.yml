@@ -1,13 +1,22 @@
 server:
   port: 8091
+  undertow:
+    io-threads: 4
+    worker-threads: 20
+    buffer-size: 1024
+    direct-buffers: true
+    eager-filter-init: true
 spring:
   redis:
     database: 0
     port: 6379
     password:
     host: 127.0.0.1
-    timeout: 0
-    pool:
-      max-idle: 8
-      min-idle: 0
+    lettuce:
+      pool:
+        max-idle: 8
+        min-idle: 0
+
+
+
 
