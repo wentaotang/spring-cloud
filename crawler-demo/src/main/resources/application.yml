@@ -1,0 +1,37 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: info-scrapy
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+  resources:
+    chain:
+      strategy:
+        content:
+          enabled: false
+          paths: /**
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/app
+    password: root
+    username: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 0
+mybatis:
+  type-aliases-package: com.hgcode.crawler.entity
+  mapper-locations: classpath:/mapper/*.xml
+
+
+
+
+
+

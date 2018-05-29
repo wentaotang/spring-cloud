@@ -46,6 +46,7 @@
         <module>config-server</module>
         <module>springboot-redis</module>
         <module>spring-security-demo</module>
+        <module>crawler-demo</module>
     </modules>
 
     <repositories>
