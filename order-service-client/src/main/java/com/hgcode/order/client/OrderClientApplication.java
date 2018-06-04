@@ -8,8 +8,6 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-@EnableCircuitBreaker
-@EnableHystrix
 public class OrderClientApplication {
 
     public static void main(String[] args) {
