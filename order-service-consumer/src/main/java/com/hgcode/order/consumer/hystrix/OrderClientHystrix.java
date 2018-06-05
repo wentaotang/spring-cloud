@@ -10,7 +10,7 @@ import java.util.Map;
 public class OrderClientHystrix  implements OrderClient{
 
     @Override
-    public String save(Map<String, Object> map) {
-        return "保存失败";
+    public Map<String,Object> save(Map<String, Object> map) {
+        return null;
     }
 }

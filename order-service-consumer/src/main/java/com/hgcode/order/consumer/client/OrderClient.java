@@ -11,7 +11,7 @@ import java.util.Map;
 public interface OrderClient{
 
     @PostMapping(value = "/save")
-    String save(@RequestBody Map<String,Object> map);
+    Map<String,Object> save(@RequestBody Map<String,Object> map);
 
 
 }

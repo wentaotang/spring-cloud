@@ -16,8 +16,8 @@ public class OrderController {
 
 
     @PostMapping(value = "/save")
-    public String save(@RequestBody  Map<String,Object> map) {
-        return orderClient.save(map);
+    public Map<String,Object> save(@RequestBody  Map<String,Object> map) {
+        return  orderClient.save(map);
     }
 
 }

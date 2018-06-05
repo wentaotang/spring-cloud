@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients
 @SpringCloudApplication
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 public class OrderConsumerApplication {
 
     public static void main(String[] args) {
