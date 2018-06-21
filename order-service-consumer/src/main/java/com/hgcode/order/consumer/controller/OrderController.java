@@ -1,12 +1,12 @@
 package com.hgcode.order.consumer.controller;
 
-import com.hgcode.order.consumer.client.OrderClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.Map;
+/*
 
 @RestController
 public class OrderController {
@@ -20,4 +20,4 @@ public class OrderController {
         return  orderClient.save(map);
     }
 
-}
+}*/

@@ -1,5 +1,7 @@
 server:
   port: 0
+  servlet:
+    context-path: /order
 eureka:
   instance:
     instance-id: ${spring.application.name}:${random.int}

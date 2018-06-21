@@ -4,7 +4,7 @@ import com.sun.jdi.InternalException;
 import feign.Response;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+/*@Configuration
 public class MyErrorDecoder implements feign.codec.ErrorDecoder {
 
     @Override
@@ -39,4 +39,4 @@ public class MyErrorDecoder implements feign.codec.ErrorDecoder {
             this.message = message;
         }
     }
-}
+}*/

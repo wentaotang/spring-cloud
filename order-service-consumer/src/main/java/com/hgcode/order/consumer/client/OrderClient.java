@@ -1,6 +1,6 @@
 package com.hgcode.order.consumer.client;
 
-
+/*
 import com.hgcode.order.consumer.hystrix.OrderClientHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,4 +14,4 @@ public interface OrderClient{
     Map<String,Object> save(@RequestBody Map<String,Object> map);
 
 
-}
+}*/

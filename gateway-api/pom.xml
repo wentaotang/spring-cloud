@@ -8,12 +8,8 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>cloud-gateway</artifactId>
+    <artifactId>gateway-api</artifactId>
     <description>spring cloud api 网关</description>
-
-    <properties>
-        <spring-cloud-gateway.version>2.0.0.M9</spring-cloud-gateway.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -27,7 +23,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-gateway</artifactId>
-                <version>${spring-cloud-gateway.version}</version>
+                <version>2.0.0.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
