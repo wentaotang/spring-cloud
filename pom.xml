@@ -47,7 +47,8 @@
         <module>springboot-redis</module>
         <module>spring-security-demo</module>
         <module>crawler-demo</module>
-       <!-- <module>rocketmq-demo</module>-->
+        <module>jdk-demo</module>
+        <!-- <module>rocketmq-demo</module>-->
     </modules>
 
     <repositories>
