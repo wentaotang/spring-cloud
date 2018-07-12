@@ -1,7 +1,12 @@
 package com.hgcode.message;
 
+import com.hgcode.message.config.SysConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
 * @Package com.hgcode.message
@@ -12,9 +17,19 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 */
 
 @SpringBootApplication
+@Controller
 public class MessageApplication {
+
+    @Autowired
+    SysConfig sysConfig;
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(MessageApplication.class).web(true).run(args);
+    }
+
+    @RequestMapping(value = "index")
+    public void index(){
+        System.out.println(sysConfig.getName());
+        System.out.println(sysConfig.getPwd());
     }
 }
