@@ -49,6 +49,8 @@
         <module>crawler-demo</module>
         <module>jdk-demo</module>
         <module>springboot-demo</module>
+        <module>mybatis-plus-demo</module>
+        <module>user-api</module>
         <!-- <module>rocketmq-demo</module>-->
     </modules>
 
