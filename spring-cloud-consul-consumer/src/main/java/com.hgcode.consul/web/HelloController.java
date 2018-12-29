@@ -15,4 +15,9 @@ public class HelloController {
     public String hello(){
         return helloFeigin.hello();
     }
+
+    @RequestMapping("/consumer/header")
+    public String header(){
+        return helloFeigin.header("hers");
+    }
 }

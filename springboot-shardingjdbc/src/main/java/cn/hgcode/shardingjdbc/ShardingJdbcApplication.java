@@ -1,13 +1,14 @@
-package com.hgcode.redis;
+package cn.hgcode.shardingjdbc;
+
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
-public class RedisApplication {
+public class ShardingJdbcApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(RedisApplication.class).web(WebApplicationType.SERVLET).run(args);
+        new SpringApplicationBuilder(ShardingJdbcApplication.class).web(WebApplicationType.SERVLET).run(args);
     }
 }
