@@ -5,6 +5,7 @@ import com.hgcode.consul.entity.Order;
 import com.hgcode.consul.service.OrderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -27,6 +28,10 @@ public class ShardingController {
             list.add(order);
             orderService.save(order);
         }
-        //orderService.saveBatch(list);
+    }
+
+    @GetMapping("/getById")
+    public Order getById(@RequestParam("id")Long id){
+        return orderService.getById(id);
     }
 }
