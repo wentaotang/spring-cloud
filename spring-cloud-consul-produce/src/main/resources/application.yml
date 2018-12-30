@@ -7,6 +7,15 @@ spring:
       port: 8500
       discovery:
         service-name: service-consul-produce
+  # rabbitmq 配置
+
+  #rabbitmq:
+   # host: 0.0.0.0
+    #port: 5672
+    #virtual-host: /
+    #username: guest
+    #password: guest
+
 server:
   port: 8989
 
