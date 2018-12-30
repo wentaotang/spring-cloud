@@ -23,11 +23,11 @@ public class ShardingController {
         List<Order> list= Lists.newArrayList();
         for(int i=0;i<5;i++){
             Order order=new Order();
-            order.setStatus(1);
-            order.setUserId(2L);
+            order.setStatus(0);
+            order.setUserId(5L);
             list.add(order);
-            orderService.save(order);
         }
+        orderService.saveBatch(list);
     }
 
     @GetMapping("/getById")
