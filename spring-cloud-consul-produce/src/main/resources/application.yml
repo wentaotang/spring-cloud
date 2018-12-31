@@ -9,13 +9,6 @@ spring:
         service-name: service-consul-produce
   # rabbitmq 配置
 
-  #rabbitmq:
-   # host: 0.0.0.0
-    #port: 5672
-    #virtual-host: /
-    #username: guest
-    #password: guest
-
 server:
   port: 8989
 
@@ -27,7 +20,7 @@ sharding:
       ds:
         type: com.zaxxer.hikari.HikariDataSource
         driverClassName: com.mysql.jdbc.Driver
-        jdbcUrl: jdbc:mysql://localhost:3306/demo_ds_0
+        jdbcUrl: jdbc:mysql://localhost:3306/demo_ds_0?useSSL=false
         username: root
         password: root
     config:
