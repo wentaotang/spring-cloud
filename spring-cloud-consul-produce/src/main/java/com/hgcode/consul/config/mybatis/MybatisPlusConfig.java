@@ -1,5 +1,6 @@
 package com.hgcode.consul.config.mybatis;
 
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
@@ -19,7 +20,9 @@ public class MybatisPlusConfig {
     @Bean
     @Profile(value = {"test","dev"})
     public PerformanceInterceptor performanceInterceptor() {
-        return new PerformanceInterceptor();
+        PerformanceInterceptor performanceInterceptor= new PerformanceInterceptor();
+        performanceInterceptor.setFormat(true);
+        return performanceInterceptor;
     }
     /**
      * 分页插件
@@ -27,5 +30,14 @@ public class MybatisPlusConfig {
     @Bean
     public PaginationInterceptor paginationInterceptor() {
         return new PaginationInterceptor();
+    }
+
+    /**
+     * 乐观锁 插件
+     * @return
+     */
+    @Bean
+    public OptimisticLockerInterceptor optimisticLockerInterceptor() {
+        return new OptimisticLockerInterceptor();
     }
 }
