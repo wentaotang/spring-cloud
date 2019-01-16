@@ -1,13 +1,24 @@
 spring:
   application:
-    name: consul-produce
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        service-name: service-consul-produce
+    name: wentao-eureka
+    stream:
+      bindings:
+        input:
+          # 解决多实例 配置相同的group,避免多实例重复消费的问题，如不配置，则会默认生成一个独立的group
+          example-topic-input:
+            destination: greetings
+            group: order
+        output:
+          example-topic-output:
+            group: order
+            destination: greetings
+
   # rabbitmq 配置
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
 
 server:
   port: 8989
@@ -72,3 +83,13 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+
+
+eureka:
+  client:
+    enabled: true
+    eureka-server-port: 8761
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka.didispace.com/eureka/

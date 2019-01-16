@@ -14,10 +14,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName(value = "t_order_item")
-public class OrderItem {
+public class OrderItem  extends BaseEntity{
 
-    @TableId(type = IdType.ID_WORKER)
-    private Long orderItemId;
+
     @TableField(value = "order_id")
     private Long orderId;
     @TableField(value = "user_id")
