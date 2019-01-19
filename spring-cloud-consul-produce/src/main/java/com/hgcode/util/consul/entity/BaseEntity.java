@@ -1,4 +1,4 @@
-package com.hgcode.consul.entity;
+package com.hgcode.util.consul.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;

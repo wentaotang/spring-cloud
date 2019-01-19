@@ -1,8 +1,8 @@
-package com.hgcode.consul.web;
+package com.hgcode.util.consul.web;
 
 import com.google.common.collect.Lists;
-import com.hgcode.consul.entity.Order;
-import com.hgcode.consul.service.OrderService;
+import com.hgcode.util.consul.entity.Order;
+import com.hgcode.util.consul.service.OrderService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

@@ -1,6 +1,7 @@
 package com.hgcode.collection;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 import org.junit.Test;
@@ -22,5 +23,10 @@ public class HashSetDemo {
        Double b=1D;
        String[] strings=StringUtils.split(b.toString(),".");
         System.out.println(strings[1].length());
+    }
+
+    @Test
+    public void test3(){
+        System.out.println(DateFormatUtils.format(new Date(),"MM月dd日E HH:mm"));
     }
 }

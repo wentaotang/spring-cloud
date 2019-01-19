@@ -1,4 +1,4 @@
-package com.hgcode.consul.config.mybatis;
+package com.hgcode.util.consul.config.mybatis;
 
 import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;

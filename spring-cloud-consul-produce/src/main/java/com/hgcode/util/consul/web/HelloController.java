@@ -1,4 +1,4 @@
-package com.hgcode.consul.web;
+package com.hgcode.util.consul.web;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

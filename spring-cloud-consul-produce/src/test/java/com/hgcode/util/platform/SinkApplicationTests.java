@@ -1,4 +1,4 @@
-package com.hgcode.platform;
+package com.hgcode.util.platform;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
