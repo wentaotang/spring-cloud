@@ -36,16 +36,11 @@
     </dependencyManagement>
 
     <modules>
-        <module>eureka-server</module>
-        <module>springboot-amqp</module>
-        <module>spring-cloud-stream-demo</module>
-        <module>gateway-api</module>
         <module>order-service-client</module>
         <module>order-service-consumer</module>
-        <module>config-server</module>
-        <module>springboot-redis</module>
         <module>jdk-demo</module>
         <module>spring-cloud-consul-produce</module>
         <module>spring-cloud-consul-consumer</module>
+        <module>spring-boot-dubbo-provider</module>
     </modules>
 </project>

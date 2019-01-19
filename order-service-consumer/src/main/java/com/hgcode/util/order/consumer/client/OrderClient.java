@@ -1,4 +1,4 @@
-package com.hgcode.order.consumer.client;
+package com.hgcode.util.order.consumer.client;
 
 /*
 import com.hgcode.order.consumer.hystrix.OrderClientHystrix;

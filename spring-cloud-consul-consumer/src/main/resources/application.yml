@@ -10,3 +10,13 @@ spring:
         register: true
 server:
   port: 8503
+
+
+feign:
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+  httpclient:
+    enabled: true

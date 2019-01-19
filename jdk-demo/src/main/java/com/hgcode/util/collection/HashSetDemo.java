@@ -1,4 +1,4 @@
-package com.hgcode.collection;
+package com.hgcode.util.collection;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;

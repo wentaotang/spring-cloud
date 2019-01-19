@@ -1,4 +1,4 @@
-package com.hgcode.order.client.exception;
+package com.hgcode.util.order.client.exception;
 
 public class ErrorResponseEntity {
 

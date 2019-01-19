@@ -1,4 +1,4 @@
-package com.hgcode.stream;
+package com.hgcode.util.stream;
 
 
 import java.util.ArrayList;

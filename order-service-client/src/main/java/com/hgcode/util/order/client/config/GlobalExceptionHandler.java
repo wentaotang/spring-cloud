@@ -1,7 +1,7 @@
-package com.hgcode.order.client.config;
+package com.hgcode.util.order.client.config;
 
-import com.hgcode.order.client.exception.CustomerException;
-import com.hgcode.order.client.exception.ErrorResponseEntity;
+import com.hgcode.util.order.client.exception.CustomerException;
+import com.hgcode.util.order.client.exception.ErrorResponseEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

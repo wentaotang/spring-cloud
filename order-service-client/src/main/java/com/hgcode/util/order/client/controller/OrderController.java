@@ -1,7 +1,7 @@
-package com.hgcode.order.client.controller;
+package com.hgcode.util.order.client.controller;
 
-import com.hgcode.order.client.exception.CustomerException;
-import com.hgcode.order.client.vo.User;
+import com.hgcode.util.order.client.exception.CustomerException;
+import com.hgcode.util.order.client.vo.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

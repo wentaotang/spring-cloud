@@ -1,4 +1,4 @@
-package com.hgcode.order.client.vo;
+package com.hgcode.util.order.client.vo;
 
 public class User {
     private String username;

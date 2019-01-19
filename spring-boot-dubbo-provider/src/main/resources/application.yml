@@ -1,0 +1,14 @@
+dubbo:
+  scan:
+    basePackages: com.hgcode.dubbo.service
+  application:
+    name: dubbo-provider-demo
+  registry:
+    address: edas://127.0.0.1:8080
+    group:
+  provider:
+    group: order
+    version: 2.1
+
+server:
+  port: 8088

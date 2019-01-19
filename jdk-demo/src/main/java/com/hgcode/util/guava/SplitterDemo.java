@@ -1,4 +1,4 @@
-package com.hgcode.guava;
+package com.hgcode.util.guava;
 
 import com.google.common.base.Splitter;
 

@@ -1,6 +1,5 @@
-package com.hgcode.order.consumer;
+package com.hgcode.util.order.consumer;
 
-import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;

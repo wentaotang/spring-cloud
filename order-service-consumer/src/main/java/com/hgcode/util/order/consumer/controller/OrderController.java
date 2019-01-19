@@ -1,4 +1,4 @@
-package com.hgcode.order.consumer.controller;
+package com.hgcode.util.order.consumer.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
